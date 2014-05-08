@@ -1,0 +1,48 @@
+@import "../bower_components/normalize.scss/_normalize.scss";
+
+$black1: #0a090a;
+$black2: #0d0c0e;
+
+$red1: #61090a;
+$red2: #550709;
+
+// Main styles
+
+html {
+	height: 100%;
+}
+
+body {
+	background: linear-gradient($black1, $black2);
+	color: white;
+	font-size: 0em;
+	height: 100%;
+}
+
+#sidebar {
+	background: linear-gradient($red1, $red2);
+	box-shadow: 0 0 7px white;
+	display: inline-block;
+	font-size: 1rem;  //inline-block whitespace fix
+	height: 100%;
+	vertical-align: top;
+	width: 20%;
+}
+
+#content {
+	display: inline-block;
+	font-size: 1rem;  //inline-block whitespace fix
+	vertical-align: top;
+	width: 80%;
+}
+
+// Index styles
+
+.logo {
+	margin-top: 15%;
+	margin-left: 37%;
+}
+
+.title {
+	margin-left: 37.7%;
+}
