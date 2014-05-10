@@ -1,10 +1,16 @@
-@import "../bower_components/normalize.scss/_normalize.scss";
+@import "normalize.scss/_normalize.scss";
+@import "compass/css3";
+
+@include font-face("Quicksand", font-files("../../../styles/fonts/Quicksand-Regular.otf"));
+
 
 $black1: #0a090a;
 $black2: #0d0c0e;
 
 $red1: #61090a;
 $red2: #550709;
+
+$whiteyred: #e0d3cc;
 
 // Main styles
 
@@ -17,6 +23,7 @@ body {
 	color: white;
 	font-size: 0em;
 	height: 100%;
+    font-family: "Quicksand";
 }
 
 #sidebar {
@@ -45,4 +52,46 @@ body {
 
 .title {
 	margin-left: 37.7%;
+}
+
+.searchbox {
+    width: 100%;
+    margin-bottom: 0.1em;
+    input {
+        width: 99.7%;
+        font-size: 1.5em;
+        height: 1.7em;
+        text-indent: 0.4em;
+        background-color: $whiteyred;
+        border: 0;
+    }
+}
+
+.herobox {
+    height: 144px;
+    overflow: hidden;
+}
+
+.portrait {
+    width: 128px;
+    height: 100%;
+    overflow-x: hidden;
+    position: relative;
+    display: inline-block;
+}
+
+.face {
+    position: absolute;
+    right: 0;
+}
+
+.name {
+    display: inline-block;
+    vertical-align: top;
+    font-size: 2em;
+    font-size: 2em;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    @include translateY(28%);
 }

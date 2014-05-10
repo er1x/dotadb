@@ -230,18 +230,20 @@ module.exports = function (grunt) {
             }
         },
         compass: {                  // Task
-            dist: {                   // Target
-              options: {              // Target options
-                sassDir: '<%= yeoman.dist %>/styles',
-                cssDir: '<%= yeoman.dist %>/styles',
-                environment: 'production'
-              }
-            },
-            dev: {                    // Another target
-              options: {
+            options: {
                 sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '<%= yeoman.app %>/styles'
-              }
+                cssDir: '.tmp/styles',
+                imagesDir: '<%= yeoman.app %>/images',
+                javascriptsDir: '<%= yeoman.app %>/scripts',
+                fontsDir: '<%= yeoman.app %>/styles/fonts',
+                importPath: '<%= yeoman.app %>/bower_components',
+                relativeAssets: true
+            },
+            dist: {},
+            server: {
+                options: {
+                    debugInfo: true
+                }
             }
           }
     });

@@ -443,20 +443,26 @@ table {
   border-spacing: 0;
 }
 
-/* line 11, main.scss */
+@font-face {
+  font-family: "Andika Basic";
+  src: url('/app/styles/fonts/AndBasR.ttf') format('truetype');
+}
+
+/* line 17, main.scss */
 html {
   height: 100%;
 }
 
-/* line 15, main.scss */
+/* line 21, main.scss */
 body {
   background: linear-gradient(#0a090a, #0d0c0e);
   color: white;
   font-size: 0em;
   height: 100%;
+  font-family: "Andika Basic";
 }
 
-/* line 22, main.scss */
+/* line 29, main.scss */
 #sidebar {
   background: linear-gradient(#61090a, #550709);
   box-shadow: 0 0 7px white;
@@ -467,7 +473,7 @@ body {
   width: 20%;
 }
 
-/* line 32, main.scss */
+/* line 39, main.scss */
 #content {
   display: inline-block;
   font-size: 1rem;
@@ -475,13 +481,65 @@ body {
   width: 80%;
 }
 
-/* line 41, main.scss */
+/* line 48, main.scss */
 .logo {
   margin-top: 15%;
   margin-left: 37%;
 }
 
-/* line 46, main.scss */
+/* line 53, main.scss */
 .title {
   margin-left: 37.7%;
+}
+
+/* line 57, main.scss */
+.searchbox {
+  width: 100%;
+  margin-bottom: 0.1em;
+}
+/* line 60, main.scss */
+.searchbox input {
+  width: 99.7%;
+  font-size: 1.5em;
+  height: 1.7em;
+  text-indent: 0.4em;
+  background-color: #e0d3cc;
+  border: 0;
+}
+
+/* line 70, main.scss */
+.herobox {
+  height: 144px;
+  overflow: hidden;
+}
+
+/* line 75, main.scss */
+.portrait {
+  width: 128px;
+  height: 100%;
+  overflow-x: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+/* line 83, main.scss */
+.face {
+  position: absolute;
+  right: 0;
+}
+
+/* line 88, main.scss */
+.name {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 2em;
+  font-size: 2em;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  -webkit-transform: translateY(25%);
+  -moz-transform: translateY(25%);
+  -ms-transform: translateY(25%);
+  -o-transform: translateY(25%);
+  transform: translateY(25%);
 }
