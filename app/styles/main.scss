@@ -10,6 +10,8 @@ $black2: #0d0c0e;
 $red1: #61090a;
 $red2: #550709;
 
+$orange: #f24c27;
+
 $whiteyred: #e0d3cc;
 
 // Main styles
@@ -55,7 +57,7 @@ body {
 }
 
 .searchbox {
-    width: 100%;
+    width: 99.5%;
     margin-bottom: 0.1em;
     input {
         width: 99.7%;
@@ -70,6 +72,16 @@ body {
 .herobox {
     height: 144px;
     overflow: hidden;
+    &:hover {
+        background-color: $whiteyred;
+        color: $black1;
+        cursor: pointer;
+    }
+}
+
+.active {
+    background-color: $whiteyred;
+    color: $black1;
 }
 
 .portrait {
@@ -88,10 +100,66 @@ body {
 .name {
     display: inline-block;
     vertical-align: top;
-    font-size: 2em;
+    margin-left: 0.1em;
     font-size: 2em;
     height: 100%;
     width: 50%;
     text-align: center;
-    @include translateY(28%);
+    @include translateY(24%);
+}
+
+// Detail
+
+.detail-title {
+    margin-top: 2em;
+    height: 10em;
+    position: relative;
+}
+
+.detail-name {
+    display: inline-block;
+    position: absolute;
+    left: 55%;
+    text-shadow: 0 0 8px white;
+    h1 {
+        font-size: 3.2em;
+        margin-bottom: 0;
+    }
+    h4 {
+        margin-top: 0.6em;
+        margin-left: 0.3em;
+    }
+}
+
+.detail-image {
+    display: inline-block;
+    position: absolute;
+    right: 2em;
+    box-shadow: 0 0 20px $orange;
+}
+
+.skill {
+    padding: 0 7em;
+    margin-top: 1em;
+}
+
+.skill-description {
+    display: inline-block;
+    width: 80%;
+    margin: 0 1em;
+    vertical-align: top;
+}
+
+.skill-image {
+    display: inline-block;
+    img {
+        border-radius: 50%;
+        box-shadow: 0 0 15px white;
+    }
+}
+
+.skill-right {
+    h4 {
+        text-align: right;
+    }
 }
