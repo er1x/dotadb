@@ -16,16 +16,16 @@ $whiteyred: #e0d3cc;
 
 // Main styles
 
-html {
-	height: 100%;
-}
-
 body {
 	background: linear-gradient($black1, $black2);
 	color: white;
 	font-size: 0em;
-	height: 100%;
     font-family: "Quicksand";
+    background-attachment: fixed;
+}
+
+.wrapper {
+    padding-left: 20%;
 }
 
 #sidebar {
@@ -34,16 +34,21 @@ body {
 	display: inline-block;
 	font-size: 1rem;  //inline-block whitespace fix
 	height: 100%;
+    margin-left: -20%;
 	vertical-align: top;
 	width: 20%;
+    overflow-y: auto;
+    z-index: 1000;
+    position: fixed;
 }
 
 #content {
 	display: inline-block;
 	font-size: 1rem;  //inline-block whitespace fix
 	vertical-align: top;
-	width: 80%;
+	width: 100%;
 }
+
 
 // Index styles
 
@@ -161,5 +166,25 @@ body {
 .skill-right {
     h4 {
         text-align: right;
+    }
+}
+
+@media screen and (max-width: 1440px)  {
+
+    .wrapper {
+        padding-left: 22%;
+    }
+
+    #sidebar {
+        width: 22%;
+        margin-left: -22%;
+    }
+
+    .detail-name {
+        left: 49%;
+    }
+
+    .skill {
+        padding: 0 5em;
     }
 }
