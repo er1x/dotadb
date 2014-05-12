@@ -1,8 +1,9 @@
 @import "normalize.scss/_normalize.scss";
 @import "compass/css3";
 
-@include font-face("Quicksand", font-files("../../../styles/fonts/Quicksand-Regular.otf"));
+$font-path: "/styles/fonts";
 
+@include font-face("Quicksand", font-files($font-path + "/Quicksand-Regular.otf"));
 
 $black1: #0a090a;
 $black2: #0d0c0e;

@@ -8,7 +8,7 @@ window.App = {
     Routers: {},
     init: function () {
         'use strict';
-        console.log('Hello from Backbone!');
+        App.router = new App.Routers.Router();
     }
 };
 

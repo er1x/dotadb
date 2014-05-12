@@ -21,28 +21,15 @@
         <div class="wrapper">
             
             <section id="sidebar">
-                <div class="searchbox">
-                    <input type="search" placeholder="search a hero..." autofocus>
-                </div>
-                <div class="searchresult">
-                    <div class="herobox active">
-                        <figure class="portrait">
-                            <img class="face" src="images/dragon-knight.png" alt="dragon-knight" >
-                        </figure>
-                        <div class="name">
-                            <span>Dragon Knight</span>
-                        </div>
-                    </div>                
-                </div>
             </section>
             <section id="content">
-                <!--<figure class="logo">
+                <figure class="logo">
                     <img src="images/logo.png" alt="">
                 </figure>
                 <figure class="title">
                     <img src="images/title.png" alt="">
-                </figure>-->
-                <div class="detail-title">
+                </figure>
+                <!-- <div class="detail-title">
                     <div class="detail-name">
                         <h1>Davion</h1>
                         <h4>The Dragon Knight</h4>
@@ -86,7 +73,7 @@
                     <figure class="skill-image">
                         <img src="images/dragon-knight-skill4.png" alt="">
                     </figure>
-                </div>
+                </div> -->
             </section>
         </div>
 
@@ -99,6 +86,11 @@
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/templates.js"></script>
+        <script src="scripts/routes/Router.js"></script>
+        <script src="scripts/views/Index.js"></script>
+        <script src="scripts/models/HeroListItem.js"></script>
+        <script src="scripts/collections/Heroes.js"></script>
+        <script src="scripts/views/HeroListItem.js"></script>
         <!-- endbuild -->
 </body>
 </html>
