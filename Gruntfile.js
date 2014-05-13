@@ -47,8 +47,7 @@ module.exports = function (grunt) {
             },
             compass: {
                 files: [
-                    '<%= yeoman.app %>/styles/*.scss',
-                    '<%= yeoman.app %>/styles/*.css',
+                    '<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'
                 ],
                 tasks: ['compass']
             },
@@ -135,6 +134,23 @@ module.exports = function (grunt) {
                 }
             }
         },
+        compass: {                  // Task
+            options: {
+                sassDir: '<%= yeoman.app %>/styles',
+                cssDir: '.tmp/styles',
+                imagesDir: '<%= yeoman.app %>/images',
+                javascriptsDir: '<%= yeoman.app %>/scripts',
+                fontsDir: '<%= yeoman.app %>/styles/fonts',
+                importPath: '<%= yeoman.app %>/bower_components',
+                relativeAssets: true
+            },
+            dist: {},
+            server: {
+                options: {
+                    debugInfo: true
+                }
+            }
+          },
         // not enabled since usemin task does concat and uglify
         // check index.html to edit your build targets
         // enable this task if you prefer defining your build targets here
@@ -207,6 +223,7 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
+                        'data/*'
                     ]
                 }]
             }
@@ -229,24 +246,7 @@ module.exports = function (grunt) {
                     ]
                 }
             }
-        },
-        compass: {                  // Task
-            options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
-                relativeAssets: true
-            },
-            dist: {},
-            server: {
-                options: {
-                    debugInfo: true
-                }
-            }
-          }
+        }
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -277,8 +277,8 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
-            'compass',
             'jst',
+            'compass:server',
             'connect:livereload',
             'open:server',
             'watch'
@@ -291,6 +291,7 @@ module.exports = function (grunt) {
                 'clean:server',
                 'createDefaultTemplate',
                 'jst',
+                'compass',
                 'connect:test',
                 'mocha',
             ];
@@ -310,7 +311,7 @@ module.exports = function (grunt) {
         'jst',
         'useminPrepare',
         'imagemin',
-        'compass',
+        'compass:dist',
         'htmlmin',
         'concat',
         'cssmin',

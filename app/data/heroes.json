@@ -2,5 +2,9 @@
     {
         "name": "Dragon Knight",
         "pathname": "dragon-knight"
+    },    
+    {
+        "name": "Riki",
+        "pathname": "riki"
     }
 ]

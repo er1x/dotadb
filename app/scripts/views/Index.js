@@ -38,6 +38,10 @@ App.Views = App.Views || {};
         findHero: function () {
             var that = this;
             this.collection.reset();
+            if ($(':input').val() === '') {
+                this.cleanList();
+                return;
+            }
             this.collection.fetch().done(function () {
                 that.collection = that.collection.byName($(':input').val());
                 that.cleanList();
