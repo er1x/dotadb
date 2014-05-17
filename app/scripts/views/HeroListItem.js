@@ -10,14 +10,18 @@ App.Views = App.Views || {};
         template: JST['app/scripts/templates/HeroListItem.ejs'],
 
         el: '.searchresult',
-        
-        initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+
+        events: {
+            'click .herobox': 'selectHero'
         },
-        
+
         render: function () {
             this.$el.append(this.template(this.model.toJSON()));
             return this;
+        },
+
+        selectHero: function () {
+            console.log(this.model);
         }
 
     });

@@ -12,46 +12,40 @@ App.Views = App.Views || {};
         template: JST['app/scripts/templates/Index.ejs'],
 
         events: {
-            "keyup :input": "findHero"
+            "keyup :input": "findHero",
         },
         
         initialize: function () {
-            this.listenTo(this.collection, 'add', this.addHero, this);
-            this.listenTo(this.collection, 'reset', this.cleanList, this);
-            this.listenTo(this.collection, 'change', this.render, this);
+            this.collection.fetch();
+            this.heroViews = [];
         },
 
         render: function () {
             this.$el.html(this.template());
-            this.collection.forEach(this.addHero, this);
             return this;
         },
-        
-        cleanList: function () {
+
+        cleanHeroes: function() {
+            this.heroViews.forEach(function (view) {
+                view.stopListening();
+            });
             $('.searchresult').empty();
+            this.heroViews = [];
         },
-        
-        renderList: function () {
-            this.collection.forEach(this.addHero, this);
-        },
-        
+
         findHero: function () {
             var that = this;
-            this.collection.reset();
-            if ($(':input').val() === '') {
-                this.cleanList();
-                return;
-            }
-            this.collection.fetch().done(function () {
-                that.collection = that.collection.byName($(':input').val());
-                that.cleanList();
-                that.renderList();
+            var list = this.collection.byName($(':input').val());
+            this.cleanHeroes();
+            list.forEach(function (hero) {
+                that.addHero(hero, that.heroViews);
             });
         },
         
-        addHero: function (hero) {
+        addHero: function (hero, list) {
             var heroView = new App.Views.HeroListItem({model: hero});
-            heroView.setElement('.searchresult').render();
+            heroView.render();
+            list.push(heroView);
         }
 
     });

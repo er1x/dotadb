@@ -10,13 +10,15 @@ App.Collections = App.Collections || {};
         model: App.Models.HeroListItem,
         
         url: '/data/heroes.json',
-        
+
         byName: function(name) {
-            var filtered;
-            filtered = this.filter(function (hero) {
-                return hero.get("name").indexOf(name) > -1; 
+            if (name === '')
+                return [];
+            return this.filter(function (hero) {
+                var n = hero.get("name").toLowerCase();
+                name = name.toLowerCase();
+                return n.indexOf(name) > -1; 
             });
-            return new App.Collections.Heroes(filtered);
         }
 
     });
