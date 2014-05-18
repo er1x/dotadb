@@ -20,8 +20,12 @@ App.Views = App.Views || {};
             return this;
         },
 
-        selectHero: function () {
-            console.log(this.model);
+        selectHero: function (ev) {
+            if (ev.target.innerHTML !== this.model.get('name')) {
+                return;
+            }
+
+            App.router.navigate("detail/" + this.model.get('id'), {trigger: true});
         }
 
     });

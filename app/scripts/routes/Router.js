@@ -9,13 +9,14 @@ App.Routers = App.Routers || {};
 
         routes: {
             "": "index",
-            "detail/:hero": "detail"
+            "detail/:heroId": "detail"
         },
 
         initialize: function () {
             
             this.heroList = new App.Collections.Heroes();
             this.indexView = new App.Views.Index({collection: this.heroList});
+            this.detailView = new App.Views.Hero({model: {}});
             
             Backbone.history.start();
         },
@@ -24,8 +25,12 @@ App.Routers = App.Routers || {};
             this.indexView.render();
         },
 
-        detail: function (hero) {
-            console.log('detail');
+        detail: function (heroId) {
+            
+            this.currentHero = this.heroList.get(heroId);
+
+            this.detailView.model = this.currentHero;
+            this.detailView.render();
         }
 
     });

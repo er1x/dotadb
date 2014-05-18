@@ -27,7 +27,7 @@ App.Views = App.Views || {};
 
         cleanHeroes: function() {
             this.heroViews.forEach(function (view) {
-                view.stopListening();
+                view.undelegateEvents();
             });
             $('.searchresult').empty();
             this.heroViews = [];
